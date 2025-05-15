@@ -34,7 +34,7 @@ export default function Login() {
       if (error.response?.status === 400) {
         setErrors([error.response.data.message || "Invalid credentials"]);
       } else if (error.response?.status === 401) {
-        setErrors(error.response.data.errors);
+        setErrors(error.response.data.errors || ["Unauthorized"]);
       } else {
         setErrors(["Something went wrong. Please try again later."]);
       }
@@ -80,14 +80,17 @@ export default function Login() {
         />
       </div>
       {errors.length > 0 && (
-        <div className=" text-center  text-red-600 rounded-md p-4 mb-4 animate-pulse">
+        <div className="text-center text-red-600 rounded-md p-4 mb-4 animate-pulse">
           {errors.map((error, index) => (
             <p key={index} className="text-sm">
-              {error.msg}
+              {typeof error === "string"
+                ? error
+                : error.msg || JSON.stringify(error)}
             </p>
           ))}
         </div>
       )}
+
       <button
         type="submit"
         className="mt-10 w-[100%] h-[35%] bg-slate-600 rounded-b-md text-[30px] p-1 font-bold text-slate-900 hover:bg-slate-950 hover:text-slate-300"

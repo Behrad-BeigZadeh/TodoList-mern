@@ -28,7 +28,7 @@ export default function SignUp() {
           error.response.data.errors || [{ msg: error.response.data.message }]
         );
       } else {
-        setErrors({ msg: "Something went wrong. Please try again later." });
+        setErrors([{ msg: "Something went wrong..." }]);
       }
     } finally {
       setIsSubmitting(false);
