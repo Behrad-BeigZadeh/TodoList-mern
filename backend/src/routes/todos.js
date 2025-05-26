@@ -1,7 +1,5 @@
 import express from "express";
-import mongoose from "mongoose";
 import { TodosModel } from "../models/Todos.js";
-import { UserModel } from "../models/Users.js";
 import { verifyToken } from "./user.js";
 
 const router = express.Router();

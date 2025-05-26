@@ -49,8 +49,6 @@ router.post(
   }
 );
 
-export default router;
-
 router.post(
   "/login",
   [
@@ -112,8 +110,6 @@ router.post(
     }
   }
 );
-
-
 
 export const verifyToken = (req, res, next) => {
   const authHeader = req.headers.authorization;
