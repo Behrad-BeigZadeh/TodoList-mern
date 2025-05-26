@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
-import { userRouter } from "./src/routes/user.js";
-import { todosRouter } from "./src/routes/todos.js";
+import userRouter from "./src/routes/user.js";
+import todosRouter from "./src/routes/todos.js";
 import { connectDb } from "./src/config/db.js";
 import dotenv from "dotenv";
 dotenv.config();
@@ -16,7 +16,9 @@ app.use(
     credentials: true,
   })
 );
-
+app.get("/ping", (req, res) => {
+  res.status(200).send("pong");
+});
 app.use("/api/auth", userRouter);
 app.use("/api/todos", todosRouter);
 

@@ -87,4 +87,4 @@ router.post("/completed/:id", async (req, res) => {
   }
 });
 
-export { router as todosRouter };
+export default router;

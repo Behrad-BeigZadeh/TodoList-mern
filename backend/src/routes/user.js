@@ -3,6 +3,7 @@ import jwt from "jsonwebtoken";
 import { UserModel } from "../models/Users.js";
 import bcrypt from "bcrypt";
 import { body, validationResult } from "express-validator";
+const router = express.Router();
 
 router.post(
   "/signup",
@@ -112,7 +113,7 @@ router.post(
   }
 );
 
-export { router as userRouter };
+
 
 export const verifyToken = (req, res, next) => {
   const authHeader = req.headers.authorization;
@@ -131,3 +132,5 @@ export const verifyToken = (req, res, next) => {
     next();
   });
 };
+
+export default router;
