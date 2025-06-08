@@ -4,6 +4,7 @@ import userRouter from "./src/routes/user.js";
 import todosRouter from "./src/routes/todos.js";
 import { connectDb } from "./src/config/db.js";
 import dotenv from "dotenv";
+import logger from "./src/lib/logger.js";
 dotenv.config();
 
 const app = express();
@@ -24,5 +25,5 @@ app.use("/api/todos", todosRouter);
 
 app.listen(PORT, () => {
   connectDb();
-  console.log(`server is running on PORT ${PORT}`);
+  logger.info(`Server is running on PORT ${PORT}`);
 });

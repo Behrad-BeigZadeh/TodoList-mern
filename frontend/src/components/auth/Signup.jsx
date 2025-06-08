@@ -22,7 +22,6 @@ export default function SignUp() {
 
       navigate("/login");
     } catch (error) {
-      console.error(error);
       if (error.response?.status === 400) {
         setErrors(
           error.response.data.errors || [{ msg: error.response.data.message }]

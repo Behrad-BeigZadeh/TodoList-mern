@@ -43,7 +43,6 @@ export default function TodoContextProvider(props) {
       setSpinner(false);
       return todos;
     } catch (error) {
-      console.error("Error in fetching todos", error);
       toast.error("Failed to fetch todos. Please try again.", {
         id: "todoError",
       });
@@ -88,7 +87,6 @@ export default function TodoContextProvider(props) {
       setInputError("");
       setRefreshTodos(true);
     } catch (error) {
-      console.log("error in adding todo", error);
       setInputError(error.response.data.message);
     }
   };
@@ -104,8 +102,6 @@ export default function TodoContextProvider(props) {
       setTodos(todos.filter((todo) => todo._id !== todoId));
       setTodoError("");
     } catch (err) {
-      console.log("error in deleting todo", err);
-
       setTodoError("Failed to delete todo. Please try again.");
     }
   };
@@ -135,7 +131,6 @@ export default function TodoContextProvider(props) {
         setRefreshTodos(true);
       }
     } catch (error) {
-      console.log("error in editing todo", error);
       setTodoError("Failed to edit todo. Please try again.");
     }
   };
@@ -153,12 +148,10 @@ export default function TodoContextProvider(props) {
           },
         }
       );
-      console.log({ result });
       if (result.data === "completed") {
         setRefreshTodos(true);
       }
     } catch (error) {
-      console.log("error in toggling todo", error);
       setTodoError("Failed to toggle todos. Please try again.");
     }
   };

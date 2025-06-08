@@ -72,8 +72,6 @@ router.post("/:id", async (req, res) => {
 router.post("/completed/:id", async (req, res) => {
   const { id } = req.params;
   const { completed } = req.body;
-  console.log({ completed });
-
   try {
     const filter = { _id: id };
     const update = { completed };

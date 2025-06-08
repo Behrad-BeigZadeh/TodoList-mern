@@ -41,7 +41,6 @@ router.post(
 
       return res.status(201).json({ message: "User registered successfully" });
     } catch (error) {
-      console.error("Signup error:", error);
       return res
         .status(500)
         .json({ message: "Server error. Please try again later." });
@@ -103,7 +102,6 @@ router.post(
         token,
       });
     } catch (error) {
-      console.error("Login error:", error);
       res.status(500).json({
         message: "Server error. Please try again later.",
       });

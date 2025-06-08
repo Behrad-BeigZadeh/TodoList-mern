@@ -30,7 +30,6 @@ export default function Login() {
       window.localStorage.setItem("userID", result.data.userID);
       navigate("/");
     } catch (error) {
-      console.error(error);
       if (error.response?.status === 400) {
         setErrors([error.response.data.message || "Invalid credentials"]);
       } else if (error.response?.status === 401) {

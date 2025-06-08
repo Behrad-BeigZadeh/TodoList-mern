@@ -28,9 +28,7 @@ export default function TodoList() {
     try {
       const todos = await handleGetTodos();
       setTodos(todos);
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
 
   useEffect(() => {
@@ -51,7 +49,6 @@ export default function TodoList() {
           value={todoValue}
           buttonClick={() => {
             if (inputError || !todoValue) {
-              console.log(inputError);
               return;
             }
           }}
